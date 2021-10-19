@@ -13,6 +13,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(plotly)
 library(DT)
+library(here)
 ```
 
 Create a scatterplot of penguin flipper_length_mm (x-axis) versus body_mass_g (y-axis) with points having different colors based on species
@@ -38,3 +39,18 @@ datatable(penguins)
 
 ### .gitignore
 - add *.html to ignore saving any html files when you knit (asterisk applies to everything)
+
+### Creating column graoh and save with `ggsave()`
+I am going to make a column graph using `geom_bar` of counts of penguins by island with fill color indicating penguin species. Then save that using `ggsave()`
+
+```{r}
+ggplot(data = penguins, aes(x = island)) + 
+  geom_bar(aes(fill = species))
+
+# use `ggsave()` to tell it how to save (size, resolution, etc), use here() to tell it where to save and the new file name
+ggsave(here("final_figures", "island_counts.png"))
+
+```
+
+
+
