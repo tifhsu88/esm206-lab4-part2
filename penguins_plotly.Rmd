@@ -36,3 +36,5 @@ penguins_graph
 datatable(penguins)
 ```
 
+### .gitignore
+- add *.html to ignore saving any html files when you knit (asterisk applies to everything)
